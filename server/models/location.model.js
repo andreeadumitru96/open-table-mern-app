@@ -19,8 +19,16 @@ let LocationSchema = new Schema({
         type: String,
         required: true
     },
+    city: {
+        type: String,
+        required: true
+    },
+    country: {
+        type: String,
+        required: true
+    },
     phone: [{
-        type: Number,
+        type: String,
         required: true
     }],
     images: [String],
@@ -38,19 +46,18 @@ let LocationSchema = new Schema({
     customWeeklyProgram: [{
         weekDay: {   
             startHour: String,
-            endHour: String  
-                  
+            endHour: String             
         }
     }],
     defaultWeeklyProgram: [{
         weekDay: { 
             startHour: {
                 type: String,
-                required: true
+                // required: true
             },
             endHour: {
                 type: String,
-                required: true
+                // required: true
             }  
         }
     }],
@@ -77,7 +84,7 @@ let LocationSchema = new Schema({
     menu: [{
          categoryName: {
              type: String,
-             required: true
+            //  required: true
          },
         categoryItems: [{
             name: String,
