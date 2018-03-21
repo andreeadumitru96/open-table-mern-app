@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 
-import('./Login.css');
+import './Login.css';
 class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    }
+  }
   render() {
     return (
       <div className="login">
@@ -17,7 +23,7 @@ class Login extends Component {
             </div>
 
             <div className="login__form-sign-in-button">
-                <RaisedButton label="LOG IN" primary={true} />
+                <RaisedButton label="LOG IN"/>
             </div>
             
                         
