@@ -1,6 +1,10 @@
-
-body {
-	background-image: url("../../../../assets/login-background.jpg");
+html, body {
+    height: 100%;
+}
+.login {
+    height: 100vh;
+    /* width: auto; */
+    background-image: url("../../../../assets/login-background.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -12,8 +16,11 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-	margin-top: 25%;
-	
+    height: 100%;
+    color: white;
+    font-size: 20px;
+    font-weight: bold; 
+    /* margin-top: 25px; */ 
 }
 
 .login__form-sign-in-button {
@@ -22,15 +29,24 @@ body {
 	align-items: center;
 	margin-top: 2%;
 }
+.login__form-forgot-password {
+    font-size: 15;
+    margin-top: 2%;
+    color: white;
+}
+
+.login__form-forgot-password-anchor {
+    color: white;
+}
 
 @media only screen and (max-width: 599px) {
     body {
-        margin-top: 80%;
+        /* margin-top: 80%; */
     }
 }
 
 @media only screen and (min-width: 600px) and (max-width: 1300px) {
     body {
-        margin-top: 60%;
+        /* margin-top: 60%; */
     }
 }
