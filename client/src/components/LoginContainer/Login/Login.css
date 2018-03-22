@@ -3,8 +3,8 @@ html, body {
 }
 .login {
     height: 100vh;
-    /* width: auto; */
-    background-image: url("../../../../assets/login-background.jpg");
+    width: auto;
+    background-image: url("../../../assets/login-background.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
