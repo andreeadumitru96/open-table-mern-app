@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppContainer from './components/shared/AppContainer/AppContainer'
-import LoginContainer from './components/shared/LoginContainer/LoginContainer';
-import NotFoundRoute from './components/shared/NotFoundRoute/NotFoundRoute';
+import AppContainer from './components/AppContainer/AppContainer';
+import LoginContainer from './components/LoginContainer/LoginContainer';
+import RegisterContainer from './components/RegisterContainer/RegisterContainer';
+import NotFoundRoute from './components/NotFoundRoute/NotFoundRoute';
+
 
 import registerServiceWorker from './registerServiceWorker';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -17,7 +19,8 @@ ReactDOM.render(<MuiThemeProvider>
     <Router>
         <Switch>
             <Route exact path='/' component={AppContainer} />
-            <Route exact path='/login' component={LoginContainer} />
+            <Route exact path='/login' component={LoginContainer}/>
+            <Route exact path='/register' render={() => <RegisterContainer isCustomer={'true'} />}/>
             <Route component={NotFoundRoute} />
         </Switch>
     </Router>
