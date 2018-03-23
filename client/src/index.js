@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppContainer from './components/AppContainer/AppContainer';
-import LoginContainer from './components/LoginContainer/LoginContainer';
-import RegisterContainer from './components/RegisterContainer/RegisterContainer';
-import NotFoundRoute from './components/NotFoundRoute/NotFoundRoute';
+import AppContainer from './components/individual/AppContainer/AppContainer';
+import LoginContainer from './components/individual/Authentication/LoginContainer/LoginContainer';
+import RegisterContainer from './components/individual/Authentication/RegisterContainer/RegisterContainer';
+import NotFoundRoute from './components/shared/NotFoundRoute/NotFoundRoute';
 
 
 import registerServiceWorker from './registerServiceWorker';

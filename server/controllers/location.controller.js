@@ -2,7 +2,6 @@ var Location = require('../models/location.model.js');
 
 exports.createSingleLocation = function(req, res) {
 
-    console.log("Dasdasds");
     // Create and Save a new Location
     if(!req.body) {
         return res.status(400).send({message: req.body});
