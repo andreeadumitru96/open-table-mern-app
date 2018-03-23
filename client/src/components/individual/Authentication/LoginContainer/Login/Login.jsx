@@ -41,11 +41,13 @@ class Login extends Component {
                     </div>
 
                     <div className="login__form-forgot-password" >
-                        <a href="" className="login__form-forgot-password-anchor"> Forgot your password? </a>
+                        <a className="login__form-forgot-password-anchor"> Forgot your password? </a>
                     </div>  
-                    {/* <div className="login__sin" >
-                        <a href="" className="login__form-forgot-password-anchor"> Forgot your password? </a>
-                    </div>        */}
+                    <div className="login__redirect-register" >
+                        <p className="login__form-forgot-password-paragaph"> Don't you have an account? SIGN UP</p>
+                        {/* <RaisedButton label="Customer"/>
+                        <RaisedButton label="Owner"/> */}
+                    </div>       
                     
                 </form>
             </div>

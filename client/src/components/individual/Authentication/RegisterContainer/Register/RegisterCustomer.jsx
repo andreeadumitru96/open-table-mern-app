@@ -68,7 +68,7 @@ class RegisterCustomer extends Component {
                     </div>
 
                     <div className="register__form-forgot-password">
-                        <a className="register__form-forgot-password-anchor" onClick={this.props.toLogin}> I've already have an account </a>
+                        <a className="register__form-forgot-password-anchor" onClick={this.props.toLogin}> I already have an account </a>
                     </div>
                 </form>
             </div>

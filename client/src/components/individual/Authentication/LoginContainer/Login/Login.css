@@ -33,6 +33,7 @@ html, body {
     font-size: 15;
     margin-top: 2%;
     color: white;
+    cursor: pointer;
 }
 
 .login__form-forgot-password-anchor {

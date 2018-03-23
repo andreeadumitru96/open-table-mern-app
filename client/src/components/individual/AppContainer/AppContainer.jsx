@@ -23,7 +23,7 @@ class AppContainer extends Component {
             <Switch>
                 <Route exact path='/' component={AppContainer} />
                 <Route exact path='/login' render={(params) => <LoginContainer history={params.history}/>}/>
-                <Route exact path='/register' render={(params) => <RegisterContainer isCustomer={'true'} history={params.history}/>}/>
+                <Route exact path='/register' render={(params) => <RegisterContainer isOwner={'true'} history={params.history}/>}/>
                 <Route component={NotFoundRoute} />
             </Switch>
         </Router>

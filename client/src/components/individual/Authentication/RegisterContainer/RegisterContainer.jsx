@@ -62,7 +62,10 @@ class RegisterContainer extends Component {
                     onRegisterForm={this.__onRegisterForm}
                     ref={(childInstance) => {this.child = childInstance}}
                 />}
-                {this.state.isOwner && <RegisterOwner />}
+                {this.state.isOwner &&
+                <RegisterOwner
+                    toLogin={this._toLogin}
+                />}
             </div>
         );
     }

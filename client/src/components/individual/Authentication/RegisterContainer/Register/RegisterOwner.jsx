@@ -72,7 +72,7 @@ class RegisterOwner extends Component {
                 </div>
 
                 <div className="register__form-forgot-password">
-                    <a href="" className="login__form-forgot-password-anchor"> I've already have an account </a>
+                    <a className="login__form-forgot-password-anchor" onClick={this.props.toLogin}> I already have an account </a>
                 </div>
             </form>
         </div>
