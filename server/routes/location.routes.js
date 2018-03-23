@@ -2,8 +2,8 @@ var locationController = require('../controllers/location.controller.js');
 
 module.exports = function(app) {
     //Create a Location
-    console.log("Dasdasd");
-    app.post('/api/location', locationController.createSingleLocation);
+
+    app.post('./api/register/location', locationController.createSingleLocation);
 
     // Create multiple Location  at once
     // app.post('/multiple-locations', locationController.createLocations);

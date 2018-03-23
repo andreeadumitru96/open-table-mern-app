@@ -14,6 +14,7 @@ app.use(cors());
 
 //Attach Routes
 require('./server/routes/location.routes')(app);
+require('./server/routes/customer.routes')(app);
 
 
 mongoose.Promise = global.Promise;
