@@ -4,7 +4,7 @@ html, body {
 .login {
     height: 100vh;
     width: auto;
-    background-image: url("../../../assets/login-background.jpg");
+    background-image: url("../../../../../assets/login-background.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -18,7 +18,7 @@ html, body {
     flex-direction: column;
     height: 100%;
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold; 
     /* margin-top: 25px; */ 
 }
