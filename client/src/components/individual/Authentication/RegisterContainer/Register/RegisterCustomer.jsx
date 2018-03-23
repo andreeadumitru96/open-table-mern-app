@@ -23,6 +23,7 @@ class RegisterCustomer extends Component {
                             inputStyle={{color: 'white'}}
                             floatingLabelStyle={{color: 'white'}}
                             floatingLabelText="First Name"
+                            ref={(inputValue) => {this.firstName = inputValue}}
                         />  
                     </div>
 
@@ -31,6 +32,7 @@ class RegisterCustomer extends Component {
                             inputStyle={{color: 'white'}}
                             floatingLabelStyle={{color: 'white'}}
                             floatingLabelText="Last Name"
+                            ref={(inputValue) => {this.lastName = inputValue}}
                         />
                     </div>
 
@@ -39,6 +41,7 @@ class RegisterCustomer extends Component {
                             inputStyle={{color: 'white'}}
                             floatingLabelStyle={{color: 'white'}}
                             floatingLabelText="Email"
+                            ref={(inputValue) => {this.email = inputValue}}
                         />
                     </div>
 
@@ -47,6 +50,7 @@ class RegisterCustomer extends Component {
                             inputStyle={{color: 'white'}}
                             floatingLabelStyle={{color: 'white'}}
                             floatingLabelText="Password"
+                            ref={(inputValue) => {this.password = inputValue}}
                         />
                     </div>
 
@@ -55,15 +59,16 @@ class RegisterCustomer extends Component {
                             inputStyle={{color: 'white'}}
                             floatingLabelStyle={{color: 'white'}}
                             floatingLabelText="Repeat Password"
+                            ref={(inputValue) => {this.repeatPassword = inputValue}}
                         />
                     </div>
 
                     <div className="register__form-sign-up-button">
-                        <RaisedButton label="SIGN UP"/>
+                        <RaisedButton label="SIGN UP" onClick={this.props.onRegisterForm}/>
                     </div>
 
                     <div className="register__form-forgot-password">
-                        <a href="" className="login__form-forgot-password-anchor"> I've already have an account </a>
+                        <a className="register__form-forgot-password-anchor" onClick={this.props.toLogin}> I've already have an account </a>
                     </div>
                 </form>
             </div>
