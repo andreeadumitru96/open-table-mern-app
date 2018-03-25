@@ -40,13 +40,13 @@ class Login extends Component {
                         <RaisedButton label="LOG IN"/>
                     </div>
 
-                    <div className="login__form-forgot-password" >
+                    <div className="login__form-forgot-password">
                         <a className="login__form-forgot-password-anchor"> Forgot your password? </a>
                     </div>  
-                    <div className="login__redirect-register" >
-                        <p className="login__form-forgot-password-paragaph"> Don't you have an account? SIGN UP</p>
-                        {/* <RaisedButton label="Customer"/>
-                        <RaisedButton label="Owner"/> */}
+                    <div className="login__redirect-register">
+                        <p> Don't you have an account? Register here </p>
+                        <a className="login__redirect-register-customer" onClick={this.props.toRegister}> Customer </a>
+                        <a className="login__redirect-register-owner" onClick={this.props.toRegister}> Location </a>      
                     </div>       
                     
                 </form>

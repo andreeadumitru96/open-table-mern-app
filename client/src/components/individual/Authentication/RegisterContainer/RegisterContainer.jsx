@@ -17,7 +17,12 @@ class RegisterContainer extends Component {
     }
 
     componentWillMount() {
-
+        if (this.props.history.location.state) {
+            this.setState({ 
+                isCustomer: this.props.history.location.state.isCustomer, 
+                isOwner: this.props.history.location.state.isOwner 
+            })
+        }
     }
 
     _toLogin() {
