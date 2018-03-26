@@ -24,6 +24,7 @@ class RegisterOwner extends Component {
                         inputStyle={{color: 'white'}}
                         floatingLabelStyle={{color: 'white'}}
                         floatingLabelText="Location Name"
+                        ref={(inputValue) => {this.locationName = inputValue}}
                     />  
                 </div>
 
@@ -32,6 +33,7 @@ class RegisterOwner extends Component {
                         inputStyle={{color: 'white'}}
                         floatingLabelStyle={{color: 'white'}}
                         floatingLabelText="Address"
+                        ref={(inputValue) => {this.address = inputValue}}
                     />
                 </div>
 
@@ -40,6 +42,7 @@ class RegisterOwner extends Component {
                         inputStyle={{color: 'white'}}
                         floatingLabelStyle={{color: 'white'}}
                         floatingLabelText="Phone"
+                        ref={(inputValue) => {this.firstName = inputValue}}
                     />
                 </div>
 
@@ -48,6 +51,7 @@ class RegisterOwner extends Component {
                         inputStyle={{color: 'white'}}
                         floatingLabelStyle={{color: 'white'}}
                         floatingLabelText="Email"
+                        ref={(inputValue) => {this.email = inputValue}}
                     />
                 </div>
                 
@@ -56,6 +60,7 @@ class RegisterOwner extends Component {
                         inputStyle={{color: 'white'}}
                         floatingLabelStyle={{color: 'white'}}
                         floatingLabelText="Password"
+                        ref={(inputValue) => {this.password = inputValue}}
                     />
                 </div>
 
@@ -64,11 +69,12 @@ class RegisterOwner extends Component {
                         inputStyle={{color: 'white'}}
                         floatingLabelStyle={{color: 'white'}}
                         floatingLabelText="Repeat Password"
+                        ref={(inputValue) => {this.repeatPassword = inputValue}}
                     />
                 </div>
 
                 <div className="register__form-sign-up-button">
-                    <RaisedButton label="SIGN UP"/>
+                    <RaisedButton label="SIGN UP" onClick={this.props.onRegisterFormLocation}/>
                 </div>
 
                 <div className="register__form-forgot-password">

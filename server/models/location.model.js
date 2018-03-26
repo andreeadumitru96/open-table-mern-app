@@ -19,14 +19,10 @@ let LocationSchema = new Schema({
         type: String,
         required: true
     },
-    city: {
-        type: String,
-        required: true
-    },
-    country: {
-        type: String,
-        required: true
-    },
+    city: String,
+
+    country: String,
+
     phone: [{
         type: String,
         required: true
@@ -37,10 +33,8 @@ let LocationSchema = new Schema({
         longitude: Number,
         latitude: Number
     },
-    capacity: {
-        type: Number,
-        required: true
-    },
+    capacity: Number,
+
     liveSeatsAvailable: Number,
 
     customWeeklyProgram: [{

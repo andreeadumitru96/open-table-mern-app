@@ -4,6 +4,7 @@ module.exports = function(app) {
     
     //Create a Customer
     app.post('/api/register/customer', customerController.createSingleCustomer);
+    
 
 
 };

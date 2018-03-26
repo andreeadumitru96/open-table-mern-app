@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import RegisterCustomer from './Register/RegisterCustomer';
-import RegisterOwner from './Register/RegisterOwner';
+import RegisterOwner from './Register/RegisterLocation';
 
 class RegisterContainer extends Component {
     constructor(props) {
@@ -9,18 +9,21 @@ class RegisterContainer extends Component {
         super(props);
         this.state = {
             isCustomer: this.props.isCustomer ? true:false,
-            isOwner: this.props.isOwner ? true:false
+            isLocation: this.props.isLocation ? true:false
         };
         this._toLogin = this._toLogin.bind(this);
-        this.__onRegisterForm = this._onRegisterForm.bind(this);
+        this._onRegisterFormCustomer = this._onRegisterFormCustomer.bind(this);
+        this._onRegisterFormLocation = this._onRegisterFormLocation.bind(this);
+
         this._sendCustomerInformation = this._sendCustomerInformation.bind(this);
+        this._sendLocationInformation = this._sendLocationInformation.bind(this);
     }
 
     componentWillMount() {
         if (this.props.history.location.state) {
             this.setState({ 
                 isCustomer: this.props.history.location.state.isCustomer, 
-                isOwner: this.props.history.location.state.isOwner 
+                isLocation: this.props.history.location.state.isLocation 
             })
         }
     }
@@ -29,16 +32,43 @@ class RegisterContainer extends Component {
         this.props.history.push('/login');
     }
   
-    _onRegisterForm() {
+    _onRegisterFormCustomer() {
         let customerInformation = {
-            firstName: this.child.firstName.getValue(),
-            lastName: this.child.lastName.getValue(),
-            email: this.child.email.getValue(),
-            password: this.child.password.getValue(),
-            repeatPassword: this.child.repeatPassword.getValue(),
-            fullName: `${this.child.firstName.getValue()} ${this.child.lastName.getValue()}`
+            firstName: this.customerChild.firstName.getValue(),
+            lastName: this.customerChild.lastName.getValue(),
+            email: this.customerChild.email.getValue(),
+            password: this.customerChild.password.getValue(),
+            fullName: `${this.customerChild.firstName.getValue()} ${this.customerChild.lastName.getValue()}`
         };
         this._sendCustomerInformation(customerInformation);
+    }
+
+    _onRegisterFormLocation() {
+        let locationInformation = {
+            locationName: this.locationChild.locationName.getValue(),
+            address: this.locationChild.address.getValue(),
+            phone: this.locationChild.address.getValue(),
+            email: this.locationChild.email.getValue(),
+            password: this.locationChild.password.getValue()
+        }
+        this._sendLocationInformation(locationInformation);
+
+    }
+
+    _sendLocationInformation(data) {
+        fetch('http://localhost:3001/api/register/location', {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: 'post',
+            body: JSON.stringify(data)
+        }).then(function (response) {
+            return response.json()
+            console.log(response)
+        }).then(function (body) {
+            console.log(body);
+        });
     }
 
     _sendCustomerInformation(data) {
@@ -64,19 +94,22 @@ class RegisterContainer extends Component {
                 <RegisterCustomer 
                     toLogin={this._toLogin}
                     sendCustomerInformation={this._sendCustomerInformation}
-                    onRegisterForm={this.__onRegisterForm}
-                    ref={(childInstance) => {this.child = childInstance}}
+                    onRegisterFormCustomer={this._onRegisterFormCustomer}
+                    ref={(childInstance) => {this.customerChild = childInstance}}
                 />}
-                {this.state.isOwner &&
+                {this.state.isLocation &&
                 <RegisterOwner
                     toLogin={this._toLogin}
+                    sendLocationInformation={this._sendLocationInformation}
+                    onRegisterFormLocation={this._onRegisterFormLocation}
+                    ref={(childInstance) => {this.locationChild = childInstance}}
                 />}
             </div>
         );
     }
 
     componentWillReceiveProps(newProps) {
-        this.setState({isCustomer: newProps.isCustomer, isOwner: newProps.isOwner});
+        this.setState({isCustomer: newProps.isCustomer, isLocation: newProps.isLocation});
     }   
 
 }

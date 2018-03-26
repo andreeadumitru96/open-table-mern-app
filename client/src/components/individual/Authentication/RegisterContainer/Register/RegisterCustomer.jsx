@@ -64,7 +64,7 @@ class RegisterCustomer extends Component {
                     </div>
 
                     <div className="register__form-sign-up-button">
-                        <RaisedButton label="SIGN UP" onClick={this.props.onRegisterForm}/>
+                        <RaisedButton label="SIGN UP" onClick={this.props.onRegisterFormCustomer}/>
                     </div>
 
                     <div className="register__form-forgot-password">

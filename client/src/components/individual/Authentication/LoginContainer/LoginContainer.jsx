@@ -15,7 +15,7 @@ class LoginContainer extends Component {
         let registerRole = event.target.textContent.includes('Customer');
 
         this.props.history.push({pathname: '/register',
-            state: { isCustomer: registerRole, isOwner: !registerRole }});
+            state: { isCustomer: registerRole, isLocation: !registerRole }});
     }
 
     componentWillMount() {
