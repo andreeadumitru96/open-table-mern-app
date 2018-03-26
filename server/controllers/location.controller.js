@@ -1,32 +1,36 @@
 var Location = require('../models/location.model.js');
+var passwordHash = require('password-hash');
 
-exports.createSingleLocation = function(req, res) {
-
-    // Create and Save a new Location
+exports.registerLocation = function(req, res) {
     if(!req.body) {
         return res.status(400).send({message: req.body});
     }
-    console.log(req.body);
-    let location = new Location(req.body);
 
-    location.save(function(err, data) {
+    let proccessedLocation = req.body;
+    proccessedLocation.password = passwordHash.generate(proccessedLocation.password);
+
+    let location = new Location(proccessedLocation);
+
+    Location.findOne({email: req.body.email}, function(err, data) {
         if(err) {
-            console.log(err);
-            res.status(500).send({message: "Some error occurred while creating the location"});
+            res.status(500).send({message: "Some error occurred while trying to register."});
+        } else if(data ===  null) {
+            location.save();
+            res.status(200).send(location);
         } else {
-            res.send(data);
+            res.status(422).send({message: "E-mail address already exists. Please choose another one."});
         }
     });
 };
 
-exports.findAllLocations = function(req, res) {
+// exports.findAllLocations = function(req, res) {
     // Retrieve and return all Locations from the database.
-    Location.find(function(err, locations){
-        if(err) {
-            console.log(err);
-            res.status(500).send({message: "Some error occurred while retrieving locations."});
-        } else {
-            res.send(locations);
-        }
-    });
-};
+//     Location.find(function(err, locations){
+//         if(err) {
+//             console.log(err);
+//             res.status(500).send({message: "Some error occurred while retrieving locations."});
+//         } else {
+//             res.send(locations);
+//         }
+//     });
+// };

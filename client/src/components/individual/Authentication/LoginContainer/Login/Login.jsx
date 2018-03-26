@@ -24,6 +24,7 @@ class Login extends Component {
                             inputStyle={{color: 'white'}}
                             floatingLabelStyle={{color: 'white'}}
                             floatingLabelText="Email"
+                            ref={(email) => { this.email = email }}
                         />  
                     </div>
 
@@ -33,11 +34,14 @@ class Login extends Component {
                             floatingLabelStyle={{color: 'white'}}
                             floatingLabelText="Password"
                             // type="password"
+                            ref={(password) => { this.password = password }}
                         />
                     </div>
 
                     <div className="login__form-sign-in-button">
-                        <RaisedButton label="LOG IN"/>
+                        <RaisedButton label="LOG IN"
+                            onClick={this.props.onLogin}
+                        />
                     </div>
 
                     <div className="login__form-forgot-password">
@@ -45,7 +49,7 @@ class Login extends Component {
                     </div>  
                     <div className="login__redirect-register">
                         <p> Don't you have an account? Register here </p>
-                        <a className="login__redirect-register-customer" onClick={this.props.toRegister}> Customer </a>
+                        <a className="login__redirect-register-customer"onClick={this.props.toRegister}> Customer </a>
                         <a className="login__redirect-register-owner" onClick={this.props.toRegister}> Location </a>      
                     </div>       
                     

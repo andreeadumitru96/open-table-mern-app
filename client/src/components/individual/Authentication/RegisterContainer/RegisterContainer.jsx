@@ -19,8 +19,8 @@ class RegisterContainer extends Component {
         this._sendCustomerInformation = this._sendCustomerInformation.bind(this);
         this._sendLocationInformation = this._sendLocationInformation.bind(this);
 
-        this._validePasswordFormCustomer = this._validePasswordFormCustomer.bind(this);
-        this._validePasswordFormLocation = this._validePasswordFormLocation.bind(this);
+        this._validatePasswordFormCustomer = this._validatePasswordFormCustomer.bind(this);
+        this._validatePasswordFormLocation = this._validatePasswordFormLocation.bind(this);
     }
 
     componentWillMount() {
@@ -36,14 +36,14 @@ class RegisterContainer extends Component {
         this.props.history.push('/login');
     }
 
-    _validePasswordFormCustomer () {
+    _validatePasswordFormCustomer () {
         if(this.customerChild.password.getValue() !== this.customerChild.repeatPassword.getValue()) {
             notificationError('Passwords does not match.')
             return false;
         }
         return true;
     }
-    _validePasswordFormLocation () {
+    _validatePasswordFormLocation () {
         if(this.locationChild.password.getValue() !== this.locationChild.repeatPassword.getValue()) {
             notificationError('Passwords does not match.')
             return false;
@@ -52,7 +52,7 @@ class RegisterContainer extends Component {
     }
   
     _onRegisterFormCustomer() {
-        if(this._validePasswordFormCustomer()) {
+        if(this._validatePasswordFormCustomer()) {
             let customerInformation = {
                 firstName: this.customerChild.firstName.getValue(),
                 lastName: this.customerChild.lastName.getValue(),
@@ -65,7 +65,7 @@ class RegisterContainer extends Component {
     }
 
     _onRegisterFormLocation() {
-        if(this.__validePasswordFormLocation()) {
+        if(this._validatePasswordFormLocation()) {
             let locationInformation = {
                 locationName: this.locationChild.locationName.getValue(),
                 address: this.locationChild.address.getValue(),
