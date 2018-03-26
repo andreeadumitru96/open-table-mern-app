@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import RegisterCustomer from './Register/RegisterCustomer';
 import RegisterOwner from './Register/RegisterLocation';
+import {notificationError} from '../../../shared/notification';
 
 class RegisterContainer extends Component {
     constructor(props) {
@@ -17,6 +18,9 @@ class RegisterContainer extends Component {
 
         this._sendCustomerInformation = this._sendCustomerInformation.bind(this);
         this._sendLocationInformation = this._sendLocationInformation.bind(this);
+
+        this._validePasswordFormCustomer = this._validePasswordFormCustomer.bind(this);
+        this._validePasswordFormLocation = this._validePasswordFormLocation.bind(this);
     }
 
     componentWillMount() {
@@ -31,28 +35,46 @@ class RegisterContainer extends Component {
     _toLogin() {
         this.props.history.push('/login');
     }
+
+    _validePasswordFormCustomer () {
+        if(this.customerChild.password.getValue() !== this.customerChild.repeatPassword.getValue()) {
+            notificationError('Passwords does not match.')
+            return false;
+        }
+        return true;
+    }
+    _validePasswordFormLocation () {
+        if(this.locationChild.password.getValue() !== this.locationChild.repeatPassword.getValue()) {
+            notificationError('Passwords does not match.')
+            return false;
+        }
+        return true;
+    }
   
     _onRegisterFormCustomer() {
-        let customerInformation = {
-            firstName: this.customerChild.firstName.getValue(),
-            lastName: this.customerChild.lastName.getValue(),
-            email: this.customerChild.email.getValue(),
-            password: this.customerChild.password.getValue(),
-            fullName: `${this.customerChild.firstName.getValue()} ${this.customerChild.lastName.getValue()}`
-        };
-        this._sendCustomerInformation(customerInformation);
+        if(this._validePasswordFormCustomer()) {
+            let customerInformation = {
+                firstName: this.customerChild.firstName.getValue(),
+                lastName: this.customerChild.lastName.getValue(),
+                email: this.customerChild.email.getValue(),
+                password: this.customerChild.password.getValue(),
+                fullName: `${this.customerChild.firstName.getValue()} ${this.customerChild.lastName.getValue()}`
+            };
+            this._sendCustomerInformation(customerInformation);
+        }  
     }
 
     _onRegisterFormLocation() {
-        let locationInformation = {
-            locationName: this.locationChild.locationName.getValue(),
-            address: this.locationChild.address.getValue(),
-            phone: this.locationChild.address.getValue(),
-            email: this.locationChild.email.getValue(),
-            password: this.locationChild.password.getValue()
+        if(this.__validePasswordFormLocation()) {
+            let locationInformation = {
+                locationName: this.locationChild.locationName.getValue(),
+                address: this.locationChild.address.getValue(),
+                phone: this.locationChild.address.getValue(),
+                email: this.locationChild.email.getValue(),
+                password: this.locationChild.password.getValue()
+            }
+            this._sendLocationInformation(locationInformation);
         }
-        this._sendLocationInformation(locationInformation);
-
     }
 
     _sendLocationInformation(data) {

@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/jelly.css';
+
 import {
     BrowserRouter as Router,
     Route,
     Switch
 } from 'react-router-dom';
 
-import App from './App/App';
 import LoginContainer from '../Authentication/LoginContainer/LoginContainer';
 import RegisterContainer from '../Authentication/RegisterContainer/RegisterContainer';
 import NotFoundRoute from '../../shared/NotFoundRoute/NotFoundRoute';
@@ -19,14 +22,18 @@ class AppContainer extends Component {
 
   render() {
     return (
-        <Router>
-            <Switch>
-                <Route exact path='/' component={AppContainer} />
-                <Route exact path='/login' render={(params) => <LoginContainer history={params.history}/>}/>
-                <Route exact path='/register' render={(params) => <RegisterContainer isOwner={'true'} history={params.history}/>}/>
-                <Route component={NotFoundRoute} />
-            </Switch>
-        </Router>
+        <div>
+            <Router>
+                <Switch>
+                    <Route exact path='/' component={AppContainer} />
+                    <Route exact path='/login' render={(params) => <LoginContainer history={params.history}/>}/>
+                    <Route exact path='/register' render={(params) => <RegisterContainer isCustomer={'true'} history={params.history}/>}/>
+                    <Route component={NotFoundRoute} />
+                </Switch>
+            </Router>
+            <Alert stack={{limit: 3}} />
+        </div>
+        
     );
   }
 }
